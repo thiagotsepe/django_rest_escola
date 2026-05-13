@@ -11,7 +11,7 @@ class EstudanteSerializer(serializers.ModelSerializer):
     def validate(self, dados):
         if nome_invalido(dados["nome"]):
             raise serializers.ValidationError({"nome": "O nome não pode ter caracteres especiais"})
-        if nome_invalido(dados["cpf"]):
+        if cpf_invalido(dados["cpf"]):
             raise serializers.ValidationError({"cpf": "O CPF deve ter um valor válido"})
         if celular_invalido(dados["celular"]):
             raise serializers.ValidationError({"celular": "O celular deve seguir o modelo: XX XXXX-XXXX"})
